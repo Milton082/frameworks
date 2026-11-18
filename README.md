@@ -39,3 +39,15 @@ npm start
 ---
 
 ## 2. Evidencia de funcionamiento
+
+### Vue.js
+
+![Vue.js](img/01-vue-terminal.png)
+
+![Vue.js](img/02-vue-localhost.png)
+
+### Angular
+
+![Angular](img/03-angular-terminal.png)
+
+![Angular](img/04-angular-localhost.png)
