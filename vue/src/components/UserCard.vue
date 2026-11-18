@@ -28,7 +28,6 @@ defineEmits(['toggle-favorite'])
 <style scoped>
 .card {
   border: 1px solid #cccccc;
-  margin-bottom: 12px;
   padding: 12px;
 }
 
