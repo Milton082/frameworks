@@ -1,47 +1,52 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { onMounted, ref } from 'vue'
+
+const users = ref([])
+const loading = ref(true)
+const error = ref('')
+
+async function getUsers() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+
+    if (!response.ok) {
+      throw new Error('No se pudieron obtener los usuarios.')
+    }
+
+    users.value = await response.json()
+  } catch (err) {
+    error.value = err.message
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(getUsers)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <h1>Gestión de usuarios</h1>
+
+    <p v-if="loading">Cargando...</p>
+    <p v-else-if="error">{{ error }}</p>
+
+    <ul v-else>
+      <li v-for="user in users" :key="user.id">
+        {{ user.name }} - {{ user.email }} - {{ user.address.city }}
+      </li>
+    </ul>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+li {
+  margin-bottom: 8px;
 }
 </style>

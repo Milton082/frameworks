@@ -1,5 +1,7 @@
 # Proyecto: Vue y Angular
 
+**Por: Milton Chuqui**
+
 Desarrollo de una misma aplicación web utilizando Vue.js y Angular, con el propósito de comparar ambos frameworks.
 
 ---
@@ -40,13 +42,15 @@ npm start
 
 ## 2. Evidencia de funcionamiento
 
-### Vue.js
+### Funcionamiento inicial de Vue y Angular
+
+### **2.1 Vue.js**
 
 ![Vue.js](img/01-vue-terminal.png)
 
 ![Vue.js](img/02-vue-localhost.png)
 
-### Angular
+### **2.2 Angular**
 
 ![Angular](img/03-angular-terminal.png)
 
