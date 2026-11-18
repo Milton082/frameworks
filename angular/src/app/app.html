@@ -1,15 +1,20 @@
 <main>
   <h1>Gestión de usuarios</h1>
+  <p>Favoritos: {{ favoriteIds().length }}</p>
 
   @if (loading()) {
     <p>Cargando...</p>
   } @else if (error()) {
     <p>{{ error() }}</p>
   } @else {
-    <ul>
+    <section class="user-list">
       @for (user of users(); track user.id) {
-        <li>{{ user.name }} - {{ user.email }} - {{ user.address.city }}</li>
+        <app-user-card
+          [user]="user"
+          [isFavorite]="favoriteIds().includes(user.id)"
+          (toggleFavorite)="toggleFavorite($event)"
+        />
       }
-    </ul>
+    </section>
   }
 </main>
