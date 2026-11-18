@@ -4,6 +4,12 @@ main {
   padding: 20px;
 }
 
+input {
+  display: block;
+  margin: 6px 0 16px;
+  padding: 6px;
+}
+
 .user-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

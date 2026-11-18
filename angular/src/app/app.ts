@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { User, UserCard } from './user-card/user-card';
 
 @Component({
@@ -15,6 +15,12 @@ export class App {
   protected readonly loading = signal(true);
   protected readonly error = signal('');
   protected readonly favoriteIds = signal<number[]>([]);
+  protected readonly search = signal('');
+  protected readonly filteredUsers = computed(() => {
+    return this.users().filter((user) =>
+      user.name.toLowerCase().includes(this.search().toLowerCase()),
+    );
+  });
 
   constructor() {
     this.getUsers();

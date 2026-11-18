@@ -2,13 +2,16 @@
   <h1>Gestión de usuarios</h1>
   <p>Favoritos: {{ favoriteIds().length }}</p>
 
+  <label for="search">Buscar por nombre</label>
+  <input #searchInput id="search" type="text" (input)="search.set(searchInput.value)" />
+
   @if (loading()) {
     <p>Cargando...</p>
   } @else if (error()) {
     <p>{{ error() }}</p>
   } @else {
     <section class="user-list">
-      @for (user of users(); track user.id) {
+      @for (user of filteredUsers(); track user.id) {
         <app-user-card
           [user]="user"
           [isFavorite]="favoriteIds().includes(user.id)"
