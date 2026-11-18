@@ -46,12 +46,28 @@ npm start
 
 ### **2.1 Vue.js**
 
-![Vue.js](img/01-vue-terminal.png)
+![Vue creado](img/01-vue-terminal.png)
 
-![Vue.js](img/02-vue-localhost.png)
+![Vue en localhost](img/02-vue-localhost.png)
+
+![Vue funcionando](img/08-vue-funcionando.png)
 
 ### **2.2 Angular**
 
-![Angular](img/03-angular-terminal.png)
+![Angular creado](img/03-angular-terminal.png)
 
-![Angular](img/04-angular-localhost.png)
+![Angular en localhost](img/04-angular-localhost.png)
+
+![Angular funcionando](img/07-angular-funcionando.png)
+
+## 3. Prueba unitaria
+
+Las pruebas unitarias verifican que el componente de tarjeta de usuario muestre correctamente la información recibida y emita el evento de favorito al pulsar el botón. Se ejecutan de forma automática para comprobar que esta funcionalidad básica siga funcionando.
+
+### **3.1 Vue.js**
+
+![Vue.js](img/05-prueba-unitaria-vue.png)
+
+### **3.2 Angular**
+
+![Angular](img/06-prueba-unitaria-angular.png)
